@@ -12,7 +12,7 @@ class HomeScreen extends StatelessWidget {
       body: Center(
         child: TextButton(
           onPressed: () async {
-            await NotificationService().showNotification(
+            await NotificationService.showNotification(
               id: '1',
               title: 'Notification Title',
               body: 'Notification Body',

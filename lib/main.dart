@@ -4,7 +4,6 @@ import 'core/services/notification_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  final notificationService = NotificationService();
-  await notificationService.initialize();
+  await NotificationService.initialize();
   runApp(const MyApp());
 }

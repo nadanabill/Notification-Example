@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'notifications_screen.dart';
-
 import '/core/services/notification_service.dart';
+import 'notification_scheduler_screen.dart';
+import 'notification_daily_scheduler_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -27,7 +27,6 @@ class HomeScreen extends StatelessWidget {
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                // open date and time picker
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -36,6 +35,18 @@ class HomeScreen extends StatelessWidget {
                 );
               },
               child: const Text('Schedule Notification'),
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => NotificationDailySchedulerScreen(),
+                  ),
+                );
+              },
+              child: const Text('Schedule Daily Notification'),
             ),
           ],
         ),

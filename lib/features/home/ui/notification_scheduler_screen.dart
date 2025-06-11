@@ -6,7 +6,7 @@ class NotificationSchedulerScreen extends StatefulWidget {
   const NotificationSchedulerScreen({super.key});
 
   @override
-  _NotificationSchedulerScreenState createState() =>
+  State<NotificationSchedulerScreen> createState() =>
       _NotificationSchedulerScreenState();
 }
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '/core/services/notification_service.dart';
+import '/core/services/local_notification_service.dart';
 import 'notification_scheduler_screen.dart';
 import 'notification_daily_scheduler_screen.dart';
 
@@ -16,7 +16,7 @@ class HomeScreen extends StatelessWidget {
           children: [
             ElevatedButton(
               onPressed: () async {
-                await NotificationService.showNotification(
+                await LocalNotificationService.showNotification(
                   id: 1,
                   title: 'Notification Title',
                   body: 'Notification Body',

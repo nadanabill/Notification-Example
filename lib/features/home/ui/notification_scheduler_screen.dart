@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '/core/services/notification_service.dart';
+import '/core/services/local_notification_service.dart';
 
 
 class NotificationSchedulerScreen extends StatefulWidget {
@@ -59,7 +59,7 @@ class _NotificationSchedulerScreenState
       return;
     }
 
-    await NotificationService.scheduleNotification(
+    await LocalNotificationService.scheduleNotification(
       id: 0,
       title: 'Reminder',
       body: 'Your scheduled notification at ${_selectedDateTime!.toString()}',

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '/core/services/notification_service.dart';
+import '/core/services/local_notification_service.dart';
 
 class NotificationDailySchedulerScreen extends StatefulWidget {
   const NotificationDailySchedulerScreen({super.key});
@@ -48,7 +48,7 @@ class _NotificationDailySchedulerScreenState
       return;
     }
 
-    await NotificationService.scheduleDailyNotification(
+    await LocalNotificationService.scheduleDailyNotification(
       id: 0,
       title: 'Reminder',
       body: 'Your scheduled daily notification at ${_selectedDateTime!.toString()}',

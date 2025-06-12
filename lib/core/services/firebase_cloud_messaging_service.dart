@@ -1,6 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:notification_example/core/services/notification_service.dart';
+import 'package:notification_example/core/services/local_notification_service.dart';
 
 Future<void> firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   await Firebase.initializeApp();
@@ -37,7 +37,7 @@ class FirebaseCloudMessagingService {
       // Add logic to show notification in UI
       final notification = message.notification;
 
-      NotificationService.showNotification(
+      LocalNotificationService.showNotification(
         id: 00,
         title: notification!.title!,
         body: notification.body!,

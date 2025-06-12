@@ -16,6 +16,8 @@ dependencies:
   flutter_local_notifications:
   permission_handler:
   timezone:
+  firebase_core:
+  firebase_messaging:
 
 dev_dependencies:
   flutter_test:

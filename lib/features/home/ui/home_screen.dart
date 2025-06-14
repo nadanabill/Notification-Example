@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notification_example/core/services/onesignal_service.dart';
 import '/core/services/local_notification_service.dart';
 import 'notification_scheduler_screen.dart';
 import 'notification_daily_scheduler_screen.dart';
@@ -47,6 +48,34 @@ class HomeScreen extends StatelessWidget {
                 );
               },
               child: const Text('Schedule Daily Notification'),
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                OneSignalService().addTag('0', 'test').then((value) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text('OneSignal Tag added: key: 0 value: test'),
+                    ),
+                  );
+                });
+              },
+              child: const Text('Add OneSignal Test Tag'),
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                OneSignalService().removeTag('0').then((value) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(
+                        'OneSignal Tag removed: key: 0 value: test',
+                      ),
+                    ),
+                  );
+                });
+              },
+              child: const Text('Remove OneSignal Test Tag'),
             ),
           ],
         ),

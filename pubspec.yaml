@@ -18,6 +18,7 @@ dependencies:
   timezone:
   firebase_core:
   firebase_messaging:
+  onesignal_flutter:
 
 dev_dependencies:
   flutter_test:

@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:timezone/timezone.dart' as tz;
@@ -12,11 +10,10 @@ class LocalNotificationService {
   // Initialize the notification plugin
   static Future<void> initialize() async {
     // Request notification permission for Android 13+
-    if (Platform.isAndroid) {
-      if (await Permission.notification.isDenied) {
-        await Permission.notification.request();
-      }
+    if (await Permission.notification.isDenied) {
+      await Permission.notification.request();
     }
+
     // Initialize timezone data
     tz.initializeTimeZones();
 
@@ -48,7 +45,11 @@ class LocalNotificationService {
         importance: Importance.max,
         priority: Priority.high,
       ),
-      iOS: DarwinNotificationDetails(),
+      iOS: DarwinNotificationDetails(
+        presentAlert: true,
+        presentBadge: true,
+        presentSound: true,
+      ),
     );
     await _notificationsPlugin.show(id, title, body, notificationDetails);
   }
@@ -78,7 +79,11 @@ class LocalNotificationService {
           importance: Importance.max,
           priority: Priority.high,
         ),
-        iOS: DarwinNotificationDetails(),
+        iOS: DarwinNotificationDetails(
+          presentAlert: true,
+          presentBadge: true,
+          presentSound: true,
+        ),
       ),
       androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
     );
@@ -119,13 +124,16 @@ class LocalNotificationService {
           importance: Importance.max,
           priority: Priority.high,
         ),
-        iOS: DarwinNotificationDetails(),
+        iOS: DarwinNotificationDetails(
+          presentAlert: true,
+          presentBadge: true,
+          presentSound: true,
+        ),
       ),
       androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
       matchDateTimeComponents: DateTimeComponents.time, // Repeat daily
     );
   }
-
 
   // Cancel a notification by ID
   Future<void> cancelNotification(String id) async {
